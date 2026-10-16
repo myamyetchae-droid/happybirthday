@@ -1,0 +1,153 @@
+.birthday-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #1a1a2e;
+}
+
+.wish-canvas {
+  width: min(900px, 100%);
+  height: min(680px, 85svh);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  background: #000;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 100;
+}
+
+.modal-content {
+  max-width: 520px;
+  width: 100%;
+  padding: 28px 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #2c3e50, #fd79a8, #2c3e50);
+  background-size: 200% 200%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  animation: popIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+             shimmer 4s ease infinite 0.5s,
+             glow 2s ease-in-out infinite 0.5s;
+}
+
+.modal-content p {
+  margin: 0 0 24px;
+  animation: fadeInUp 0.6s ease-out 0.15s both;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+.close-heart {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  animation: pulse 1.4s ease-in-out infinite, float 2.5s ease-in-out infinite;
+}
+
+.close-heart svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 107, 129, 0.45);
+  }
+  to {
+    box-shadow: 0 0 45px rgba(254, 202, 87, 0.65);
+  }
+}
+
+@media (max-width: 600px) {
+  .birthday-page {
+    padding: 12px;
+  }
+
+  .wish-canvas {
+    height: min(620px, 80svh);
+    border-radius: 14px;
+  }
+
+  .modal-content {
+    padding: 22px 20px;
+    font-size: 16px;
+  }
+
+  .close-heart {
+    width: 42px;
+    height: 42px;
+  }
+}
